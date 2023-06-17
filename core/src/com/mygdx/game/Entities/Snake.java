@@ -8,12 +8,13 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import java.util.LinkedList;
 import java.util.Stack;
 
-import com.mygdx.game.Game.Info;
-
-import com.mygdx.game.asset.Asset;
 
 
-import static com.mygdx.game.Game.Info.SCALE;
+import com.mygdx.game.Game.InfoGame;
+
+
+
+import static com.mygdx.game.Game.InfoGame.SCALE;
 import com.mygdx.game.Direction;
 
 public class Snake {
@@ -41,7 +42,7 @@ public class Snake {
         for (int i = 0; i < 5; i++) {
             GameObject life = new GameObject(Asset.instance().getSprite("heart"));
             life.setSize(25, 25);
-            life.setPosition((Info.SCREEN_WIDTH - 25) - life.getWidth() * (i * 1.2f) , Info.SCREEN_HEIGHT - life.getHeight() - 10);
+            life.setPosition((InfoGame.SCREEN_WIDTH - 25) - life.getWidth() * (i * 1.2f) , InfoGame.SCREEN_HEIGHT - life.getHeight() - 10);
             lives.add(life);
         }
     }
@@ -101,10 +102,10 @@ public class Snake {
     }
 
     private void checkWallCollision() {
-        if (head.getY() > Info.SCREEN_HEIGHT) head.setY(0);
-        if (head.getY() < 0) head.setY(Info.SCREEN_HEIGHT);
-        if (head.getX() > Info.SCREEN_WIDTH) head.setX(0);
-        if (head.getX() < 0) head.setX(Info.SCREEN_WIDTH);
+        if (head.getY() > InfoGame.SCREEN_HEIGHT) head.setY(0);
+        if (head.getY() < 0) head.setY(InfoGame.SCREEN_HEIGHT);
+        if (head.getX() > InfoGame.SCREEN_WIDTH) head.setX(0);
+        if (head.getX() < 0) head.setX(InfoGame.SCREEN_WIDTH);
     }
 
 

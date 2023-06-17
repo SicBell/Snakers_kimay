@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 
 import com.mygdx.game.Direction;
 
-import static com.mygdx.game.Game.Info.SCALE;
+import static com.mygdx.game.Game.InfoGame.SCALE;
 
 
 public class Cell extends GameObject {

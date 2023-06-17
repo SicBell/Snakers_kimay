@@ -3,11 +3,11 @@ package com.mygdx.game.Entities;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 
-import com.mygdx.game.Game.Info;
+import com.mygdx.game.Game.InfoGame;
 
 import com.mygdx.game.asset.Asset;
 
-import static com.mygdx.game.Game.Info.SCALE;
+import static com.mygdx.game.Game.InfoGame.SCALE;
 
 public class Board {
 
