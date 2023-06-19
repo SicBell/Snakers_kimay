@@ -70,11 +70,11 @@ public class Board {
     }
 
     private float foodRandX() {
-        return MathUtils.random(1, Info.BOARD_WIDTH - 1) * SCALE;
+        return MathUtils.random(1, InfoGame.BOARD_WIDTH - 1) * SCALE;
     }
 
     private float foodRandY() {
-        return MathUtils.random(1, Info.BOARD_HEIGHT - 1) * SCALE;
+        return MathUtils.random(1, InfoGame.BOARD_HEIGHT - 1) * SCALE;
     }
 
     public void reset() {

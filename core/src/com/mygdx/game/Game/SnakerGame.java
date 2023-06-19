@@ -11,8 +11,10 @@ import com.mygdx.game.Entities.GameObject;
 import com.mygdx.game.Entities.Snake;
 import com.mygdx.game.Entities.Cell;
 import com.mygdx.game.Scorer;
+import com.mygdx.game.asset.Asset;
+import com.mygdx.game.asset.SoundPlayer;
 
-public class Snake_Game {
+public class SnakerGame {
 
     private static final int WIDTH = Gdx.graphics.getWidth();
     private static final int HEIGHT = Gdx.graphics.getHeight();
@@ -25,7 +27,7 @@ public class Snake_Game {
     private GameObject food;
     private boolean isGameOver;
 
-    public Snake_Game() {
+    public SnakerGame() {
         TextureAtlas atlas = Asset.instance().get(Asset.SNAKE_PACK);
         font = Asset.instance().get(Asset.PIXEL_FONT);
         snake = new Snake(atlas);
