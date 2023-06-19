@@ -4,18 +4,19 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mygdx.game.Game.Snake_Game;
+import com.mygdx.game.Game.SnakerGame;
+import com.mygdx.game.asset.Asset;
 
-public class SSSnake {
+public class SSSnake extends Game{
 
     private SpriteBatch batch;
-    private Snake_Game game;
+    private SnakerGame game;
 
     @Override
     public void create() {
         Asset.instance().loadAsset();
         batch = new SpriteBatch();
-        game = new Snake_Game();
+        game = new SnakerGame();
     }
 
     @Override

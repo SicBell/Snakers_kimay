@@ -16,6 +16,7 @@ import com.mygdx.game.Game.InfoGame;
 
 import static com.mygdx.game.Game.InfoGame.SCALE;
 import com.mygdx.game.Direction;
+import com.mygdx.game.asset.Asset;
 
 public class Snake {
 
