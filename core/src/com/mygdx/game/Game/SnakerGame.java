@@ -1,5 +1,6 @@
 package com.mygdx.game.Game;
 
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -37,33 +38,36 @@ public class SnakerGame {
     }
 
     private void init() {
-        SoundPlayer.init();
-        SoundPlayer.playMusic(Asset.MEMO_SOUND, false);
+            SoundPlayer.init();
+            SoundPlayer.playMusic(Asset.MEMO_SOUND, false);
     }
 
     public void update(float delta) {
-        if (snake.hasLive()) {
-            timeState += delta;
-            snake.handleEvents();
-            if (timeState >= .09f) {
-                snake.moveBody();
-                timeState = 0;
+        if (!snake.isPause()){
+            if (snake.hasLive()) {
+                timeState += delta;
+                snake.handleEvents();
+                if (timeState >= .09f) {
+                    snake.moveBody();
+                    timeState = 0;
+                }
+                if (snake.isCrash()) {
+                    snake.reset();
+                    snake.popLife();
+                    SoundPlayer.playSound(Asset.CRASH_SOUND, false);
+                }
+                if (snake.isFoodTouch(food)) {
+                    SoundPlayer.playSound(Asset.EAT_FOOD_SOUND, false);
+                    Scorer.score();
+                    snake.grow();
+                    food = board.generateFood();
+                }
+            } else {
+                gameOver();
+                if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) start();
             }
-            if (snake.isCrash()) {
-                snake.reset();
-                snake.popLife();
-                SoundPlayer.playSound(Asset.CRASH_SOUND, false);
-            }
-            if (snake.isFoodTouch(food)) {
-                SoundPlayer.playSound(Asset.EAT_FOOD_SOUND, false);
-                Scorer.score();
-                snake.grow();
-                food = board.generateFood();
-            }
-        } else {
-            gameOver();
-            if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) start();
         }
+        snake.Pause();
     }
 
     private void gameOver() {

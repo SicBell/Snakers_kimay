@@ -28,6 +28,7 @@ public class Snake {
     private Direction dir;
     private Cell head;
     private Cell tail;
+    private boolean Pause;
 
 
     public Snake(TextureAtlas atlas) {
@@ -84,6 +85,11 @@ public class Snake {
         else if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT) && dir != Direction.LEFT)
             dir = Direction.RIGHT;
     }
+    public void Pause(){
+        if (Gdx.input.isKeyJustPressed(Input.Keys.P)) {
+            Pause = !Pause;
+        }
+    }
 
 
     public void render(SpriteBatch batch) {
@@ -120,6 +126,10 @@ public class Snake {
         snakeBody.add(body);
         tail = snakeBody.getLast().originCenter();
         System.out.println(snakeBody.size());
+    }
+
+    public boolean isPause() {
+        return Pause;
     }
 
     public boolean hasLive() {
