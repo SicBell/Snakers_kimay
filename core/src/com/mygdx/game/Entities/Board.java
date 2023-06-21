@@ -7,6 +7,8 @@ import com.mygdx.game.Game.InfoGame;
 
 import com.mygdx.game.asset.Asset;
 
+import java.util.Random;
+
 import static com.mygdx.game.Game.InfoGame.SCALE;
 
 public class Board {
@@ -16,6 +18,8 @@ public class Board {
     private String[] foodTypes = {
             "coin sprite","diamond","potion"};
 
+
+    Random rand = new Random();
 
     public Board(Snake snake, int width, int height) {
         this.snake = snake;
@@ -52,9 +56,24 @@ public class Board {
         }
     }
 
-    public GameObject generateFood() {
 
-        int foodType = MathUtils.random(foodTypes.length - 1);
+
+
+
+    public GameObject generateFood() {
+        int num = rand.nextInt(100);
+        int index = 0;
+        if (num >= 94){
+            index = 2;
+        } else if (num >= 70 && num <= 93) {
+            index = 1;
+
+        }else {
+            index = 0;
+        }
+
+
+        int foodType = index;
         System.out.println("Food type: " + foodType);
         GameObject food = new GameObject(Asset.instance().getSprite(foodTypes[foodType]));
         food.setPosition(foodRandX(), foodRandY());
