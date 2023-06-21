@@ -1,5 +1,6 @@
 package com.mygdx.game.Game;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -10,6 +11,7 @@ import com.mygdx.game.Entities.Board;
 import com.mygdx.game.Entities.GameObject;
 import com.mygdx.game.Entities.Snake;
 import com.mygdx.game.Entities.Cell;
+import com.mygdx.game.SSSnake;
 import com.mygdx.game.Scorer;
 import com.mygdx.game.asset.Asset;
 import com.mygdx.game.asset.SoundPlayer;
@@ -28,6 +30,9 @@ public class SnakerGame {
     private boolean isGameOver;
     private boolean isMuted;
     private String MuteStatus = "ON";
+
+    private Game game;
+
 
 
     public SnakerGame() {
