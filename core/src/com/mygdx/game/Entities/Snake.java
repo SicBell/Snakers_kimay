@@ -154,6 +154,7 @@ public class Snake {
         lives.pop();
     }
 
+
     public void reset() {
         init();
     }

@@ -14,7 +14,8 @@ public class Board {
     private Cell[][] cells;
     private Snake snake;
     private String[] foodTypes = {
-            "coin sprite"};
+            "coin sprite","diamond","potion"};
+
 
     public Board(Snake snake, int width, int height) {
         this.snake = snake;
@@ -65,6 +66,7 @@ public class Board {
         }
         return food;
     }
+
 
     private float foodRandX() {
         return MathUtils.random(1, InfoGame.BOARD_WIDTH - 1) * SCALE;
