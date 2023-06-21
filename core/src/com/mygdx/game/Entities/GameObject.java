@@ -79,7 +79,7 @@ public class GameObject {
 
     @Override
     public String toString() {
-        return "GameObject{" +
+                return "GameObject{" +
                 "x=" + x +
                 ", y=" + y +
                 '}';

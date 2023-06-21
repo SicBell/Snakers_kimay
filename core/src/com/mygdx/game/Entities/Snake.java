@@ -30,6 +30,7 @@ public class Snake {
     private Cell tail;
     private boolean Pause;
     private boolean Mute;
+    private int LifeCount = 5;
 
 
     public Snake(TextureAtlas atlas) {
@@ -42,6 +43,16 @@ public class Snake {
     }
 
     public void restoreHealth() {
+        for (int i = 0; i < 5; i++) {
+            GameObject life = new GameObject(Asset.instance().getSprite("heart"));
+            life.setSize(25, 25);
+            life.setPosition((InfoGame.SCREEN_WIDTH - 25) - life.getWidth() * (i * 1.2f) , InfoGame.SCREEN_HEIGHT - life.getHeight() - 10);
+            if (i == LifeCount - 1) {
+                lives.add(life);
+            }
+        }
+    }
+    public void AddHealth() {
         for (int i = 0; i < 5; i++) {
             GameObject life = new GameObject(Asset.instance().getSprite("heart"));
             life.setSize(25, 25);
@@ -157,5 +168,9 @@ public class Snake {
 
     public void reset() {
         init();
+    }
+
+    public int getLifeCount() {
+        return LifeCount;
     }
 }
