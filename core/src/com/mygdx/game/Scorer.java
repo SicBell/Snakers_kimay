@@ -6,6 +6,10 @@ public class Scorer {
     public static void score() {
         score += 10;
     }
+    public static void diamondscore() {
+        score += 30;
+    }
+
 
     public static int getScore() {
         return score;

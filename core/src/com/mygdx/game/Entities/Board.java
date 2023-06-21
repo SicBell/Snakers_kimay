@@ -12,7 +12,7 @@ import java.util.Random;
 import static com.mygdx.game.Game.InfoGame.SCALE;
 
 public class Board {
-
+    public int index = 0;
     private Cell[][] cells;
     private Snake snake;
     private String[] foodTypes = {
@@ -62,7 +62,7 @@ public class Board {
 
     public GameObject generateFood() {
         int num = rand.nextInt(100);
-        int index = 0;
+
         if (num >= 94){
             index = 2;
         } else if (num >= 70 && num <= 93) {
@@ -86,6 +86,13 @@ public class Board {
         return food;
     }
 
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
 
     private float foodRandX() {
         return MathUtils.random(1, InfoGame.BOARD_WIDTH - 1) * SCALE;

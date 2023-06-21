@@ -27,6 +27,8 @@ public class SnakerGame {
     private BitmapFont font;
 
     private GameObject food;
+
+
     private boolean isGameOver;
     private boolean isMuted;
     private String MuteStatus = "ON";
@@ -68,11 +70,28 @@ public class SnakerGame {
                     }
                 }
                 if (snake.isFoodTouch(food)) {
-                    if (!isMuted){
-                    SoundPlayer.playSound(Asset.EAT_FOOD_SOUND, false);}
-                    Scorer.score();
-                    snake.grow();
-                    food = board.generateFood();
+                    if (board.getIndex()==0){
+                        if (!isMuted){
+                            SoundPlayer.playSound(Asset.EAT_FOOD_SOUND, false);}
+                        Scorer.score();
+
+                        snake.grow();
+                        food = board.generateFood();
+                    }
+                    else if (board.getIndex()==1){
+                        if (!isMuted){
+                            SoundPlayer.playSound(Asset.EAT_FOOD_SOUND, false);}
+                        Scorer.diamondscore();
+
+                        snake.grow();
+                        food = board.generateFood();
+                    }
+//                    else {
+//                        if (!isMuted){
+//                            SoundPlayer.playSound(Asset.EAT_FOOD_SOUND, false);}
+//
+//                        food = board.generateFood();
+//                    }
                 }
                 if (Gdx.input.isKeyJustPressed(Input.Keys.M)) {
                     toggleMute();

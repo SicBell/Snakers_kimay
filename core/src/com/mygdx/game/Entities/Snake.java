@@ -138,6 +138,7 @@ public class Snake {
         return this.snakeBody.getFirst().isCollide(food);
     }
 
+
     public void grow() {
         snakeBody.getLast().sprite.setRegion(atlas.getRegions().get(3));
         Cell body = new Cell(atlas.createSprite("Snake Tail"), tail.getX(), tail.getY());
