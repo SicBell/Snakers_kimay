@@ -47,9 +47,8 @@ public class Snake {
             GameObject life = new GameObject(Asset.instance().getSprite("heart"));
             life.setSize(25, 25);
             life.setPosition((InfoGame.SCREEN_WIDTH - 25) - life.getWidth() * (i * 1.2f) , InfoGame.SCREEN_HEIGHT - life.getHeight() - 10);
-            if (i == LifeCount - 1) {
-                lives.add(life);
-            }
+            lives.add(life);
+
         }
     }
     public void AddHealth() {
@@ -57,7 +56,9 @@ public class Snake {
             GameObject life = new GameObject(Asset.instance().getSprite("heart"));
             life.setSize(25, 25);
             life.setPosition((InfoGame.SCREEN_WIDTH - 25) - life.getWidth() * (i * 1.2f) , InfoGame.SCREEN_HEIGHT - life.getHeight() - 10);
-            lives.add(life);
+            if (i == LifeCount - 1) {
+                lives.add(life);
+            }
         }
     }
 
