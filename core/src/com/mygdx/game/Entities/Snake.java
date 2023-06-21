@@ -51,16 +51,17 @@ public class Snake {
 
         }
     }
-    public void AddHealth() {
-        for (int i = 0; i < 5; i++) {
-            GameObject life = new GameObject(Asset.instance().getSprite("heart"));
-            life.setSize(25, 25);
-            if (i == LifeCount - 1) {
-                life.setPosition((InfoGame.SCREEN_WIDTH - 25) - life.getWidth() * (i * 1.2f) , InfoGame.SCREEN_HEIGHT - life.getHeight() - 10);
-                lives.add(life);
-            }
-        }
-    }
+//    public void AddHealth() {
+//        for (int i = 0; i < 5; i++) {
+//            GameObject life = new GameObject(Asset.instance().getSprite("heart"));
+//            life.setSize(25, 25);
+//            life.setPosition((InfoGame.SCREEN_WIDTH - 25) - life.getWidth() * (i * 1.2f) , InfoGame.SCREEN_HEIGHT - life.getHeight() - 10);
+//            if (i == LifeCount - 1) {
+//                lives.add(life);
+//                life.draw();
+//            }
+//        }
+//    }
 
     private void init() {
         snakeBody.clear();
