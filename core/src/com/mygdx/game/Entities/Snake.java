@@ -62,9 +62,9 @@ public class Snake {
     }
 
     private String getBodyType(int index) {
-        if (index == INITIAL_BODY_COUNT) return "snake_head";
-        if (index == 0) return "snake_tail";
-        else return "snake_body";
+        if (index == INITIAL_BODY_COUNT) return "Snake Head";
+        if (index == 0) return "Snake Tail";
+        else return "Snake Body";
     }
 
     public void moveBody() {
@@ -127,8 +127,8 @@ public class Snake {
     }
 
     public void grow() {
-        snakeBody.getLast().sprite.setRegion(atlas.getRegions().get(12));
-        Cell body = new Cell(atlas.createSprite("snake_tail"), tail.getX(), tail.getY());
+        snakeBody.getLast().sprite.setRegion(atlas.getRegions().get(3));
+        Cell body = new Cell(atlas.createSprite("Snake Tail"), tail.getX(), tail.getY());
         snakeBody.add(body);
         tail = snakeBody.getLast().originCenter();
         System.out.println(snakeBody.size());

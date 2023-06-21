@@ -19,7 +19,7 @@ public class Asset {
     private static Asset instance = new Asset();
     private AssetManager assetManager = new AssetManager();
 
-    public static final String SNAKE_PACK = "images/snake.pack";
+    public static final String SNAKE_PACK = "images/snaker.pack";
     public static final String PIXEL_FONT = "fonts/pixel.ttf";
     public static final String MEMO_SOUND = "sounds/8bit_bg.mp3";
     public static final String GAME_OVER_SOUND = "sounds/gameover.mp3";

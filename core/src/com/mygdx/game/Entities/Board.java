@@ -14,10 +14,7 @@ public class Board {
     private Cell[][] cells;
     private Snake snake;
     private String[] foodTypes = {
-            "green_icing_green_sprinkles", "blue_icing", "chocolate_icing", "chocolate_icing_chocolate_drizzle", "dark_red_icing",
-            "orange_icing_chocolate_shaving", "pink_icing_sprinkles", "orange_icing_chocolate_shaving", "pink_icing_sprinkles",
-            "pink_icing_white_drizzle", "red_icing_white_sprinkles",
-            "white_icing", "white_icing_sprinkles", "yellow_icing_chocolate_drizzle"};
+            "coin sprite"};
 
     public Board(Snake snake, int width, int height) {
         this.snake = snake;
@@ -37,13 +34,13 @@ public class Board {
 
     private String randomGrass(int row, int col) {
         if (col % 2 == 0) {
-            if (row % 2 != 0) return "grass_01";
-            if (row % 2 == 0) return "grass_02";
+            if (row % 2 != 0) return "floor1";
+            if (row % 2 == 0) return "floor2";
         } else if (col % 2 != 0) {
-            if (row % 2 != 0) return "grass_02";
-            if (row % 2 == 0) return "grass_01";
+            if (row % 2 != 0) return "floor2";
+            if (row % 2 == 0) return "floor1";
         }
-        return "grass_02";
+        return "floor2";
     }
 
     public void render(SpriteBatch batch) {
