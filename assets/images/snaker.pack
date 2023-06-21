@@ -1,0 +1,59 @@
+
+Snake1.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+coin sprite
+  rotate: false
+  xy: 2, 2
+  size: 544, 457
+  orig: 544, 457
+  offset: 0, 0
+  index: 0
+Snake Head
+  rotate: false
+  xy: 548, 2
+  size: 385, 385
+  orig: 385, 385
+  offset: 0, 0
+  index: 1
+Snake Tail
+  rotate: false
+  xy: 2, 461
+  size: 384, 384
+  orig: 384, 384
+  offset: 0, 0
+  index: 2
+Snake Body
+  rotate: false
+  xy: 388, 461
+  size: 384, 384
+  orig: 384, 384
+  offset: 0, 0
+  index: 3
+
+Snake3.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+floor2
+  rotate: false
+  xy: 2, 2
+  size: 384, 384
+  orig: 384, 384
+  offset: 0, 0
+  index: 4
+floor1
+  rotate: false
+  xy: 388, 2
+  size: 384, 384
+  orig: 384, 384
+  offset: 0, 0
+  index: 5
+heart
+  rotate: false
+  xy: 2, 388
+  size: 254, 254
+  orig: 254, 254
+  offset: 0, 0
+  index: 6
