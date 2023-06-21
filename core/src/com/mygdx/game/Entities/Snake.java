@@ -29,6 +29,7 @@ public class Snake {
     private Cell head;
     private Cell tail;
     private boolean Pause;
+    private boolean Mute;
 
 
     public Snake(TextureAtlas atlas) {
@@ -90,6 +91,11 @@ public class Snake {
             Pause = !Pause;
         }
     }
+    public void Mute(){
+        if (Gdx.input.isKeyJustPressed(Input.Keys.X)){
+            Mute = !Mute;
+        }
+    }
 
 
     public void render(SpriteBatch batch) {
@@ -130,6 +136,10 @@ public class Snake {
 
     public boolean isPause() {
         return Pause;
+    }
+
+    public boolean isMute() {
+        return Mute;
     }
 
     public boolean hasLive() {

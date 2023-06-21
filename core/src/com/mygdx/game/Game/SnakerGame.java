@@ -1,6 +1,5 @@
 package com.mygdx.game.Game;
 
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -27,6 +26,9 @@ public class SnakerGame {
 
     private GameObject food;
     private boolean isGameOver;
+    private boolean isMuted;
+    private String MuteStatus = "ON";
+
 
     public SnakerGame() {
         TextureAtlas atlas = Asset.instance().get(Asset.SNAKE_PACK);
@@ -38,8 +40,10 @@ public class SnakerGame {
     }
 
     private void init() {
-            SoundPlayer.init();
-            SoundPlayer.playMusic(Asset.MEMO_SOUND, false);
+        SoundPlayer.init();
+        SoundPlayer.playMusic(Asset.MEMO_SOUND, false);
+
+        isMuted = false;
     }
 
     public void update(float delta) {
@@ -54,13 +58,19 @@ public class SnakerGame {
                 if (snake.isCrash()) {
                     snake.reset();
                     snake.popLife();
-                    SoundPlayer.playSound(Asset.CRASH_SOUND, false);
+                    if (!isMuted) {
+                        SoundPlayer.playSound(Asset.CRASH_SOUND, false);
+                    }
                 }
                 if (snake.isFoodTouch(food)) {
-                    SoundPlayer.playSound(Asset.EAT_FOOD_SOUND, false);
+                    if (!isMuted){
+                    SoundPlayer.playSound(Asset.EAT_FOOD_SOUND, false);}
                     Scorer.score();
                     snake.grow();
                     food = board.generateFood();
+                }
+                if (Gdx.input.isKeyJustPressed(Input.Keys.M)) {
+                    toggleMute();
                 }
             } else {
                 gameOver();
@@ -69,6 +79,18 @@ public class SnakerGame {
         }
         snake.Pause();
     }
+    private void toggleMute() {
+        isMuted = !isMuted;
+        if (isMuted) {
+            MuteStatus = "OFF";
+            SoundPlayer.stopMusic(Asset.MEMO_SOUND);
+            SoundPlayer.stopMusic(Asset.GAME_OVER_SOUND);
+        } else {
+            SoundPlayer.playMusic(Asset.MEMO_SOUND, false);
+            MuteStatus = "ON";
+        }
+    }
+
 
     private void gameOver() {
         isGameOver = true;
@@ -97,9 +119,12 @@ public class SnakerGame {
             font.draw(batch, "GAME OVER", (WIDTH - 100) / 2, (HEIGHT + 100) / 2);
             font.draw(batch, "Press any key to continue", (WIDTH - 250) / 2, (HEIGHT + 50) / 2);
         }
-
+        if (snake.isPause()){
+            font.draw(batch, "PAUSED", (WIDTH - 100) / 2, (HEIGHT + 100) / 2);
+        }
         font.draw(batch, "Score: " + Scorer.getScore(), InfoGame.SCALE / 2, InfoGame.SCREEN_HEIGHT - 10);
         font.draw(batch, "Size: " + snake.getBody().size(), InfoGame.SCALE / 2, InfoGame.SCREEN_HEIGHT - 40);
+        font.draw(batch, "Sound: " + MuteStatus , InfoGame.SCALE / 2, InfoGame.SCREEN_HEIGHT - 70);
     }
 
 }
