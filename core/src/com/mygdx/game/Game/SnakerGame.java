@@ -27,6 +27,7 @@ public class SnakerGame {
     private BitmapFont font;
 
     private GameObject food;
+    private GameObject life;
 
 
     private boolean isGameOver;
@@ -66,6 +67,7 @@ public class SnakerGame {
                     snake.reset();
                     snake.popLife();
                     snake.setLifeCount(snake.getLifeCount()-1);
+                    System.out.println("life" + snake.getLifeCount());
                     if (!isMuted) {
                         SoundPlayer.playSound(Asset.CRASH_SOUND, false);
                     }
@@ -75,7 +77,6 @@ public class SnakerGame {
                         if (!isMuted){
                             SoundPlayer.playSound(Asset.EAT_FOOD_SOUND, false);}
                         Scorer.score();
-
                         snake.grow();
                         food = board.generateFood();
                     }
@@ -83,8 +84,12 @@ public class SnakerGame {
                         if (!isMuted){
                             SoundPlayer.playSound(Asset.EAT_FOOD_SOUND, false);}
                         Scorer.diamondscore();
-
                         snake.grow();
+                        food = board.generateFood();
+                    } else if (board.getIndex() == 2) {
+                        if (!isMuted){
+                            SoundPlayer.playSound(Asset.EAT_FOOD_SOUND, false);}
+                        snake.AddHealth();
                         food = board.generateFood();
                     }
 //                    else {
@@ -126,7 +131,6 @@ public class SnakerGame {
     private void start() {
         SoundPlayer.playMusic(Asset.MEMO_SOUND, false);
         SoundPlayer.stopMusic(Asset.GAME_OVER_SOUND);
-
         isGameOver = false;
         snake.reset();
         snake.restoreHealth();
@@ -139,13 +143,15 @@ public class SnakerGame {
         food.draw(batch);
         snake.render(batch);
         font.setColor(Color.BLACK);
-
         if (isGameOver) {
             font.draw(batch, "GAME OVER", (WIDTH - 100) / 2, (HEIGHT + 100) / 2);
             font.draw(batch, "Press any key to continue", (WIDTH - 250) / 2, (HEIGHT + 50) / 2);
         }
         if (snake.isPause()){
             font.draw(batch, "PAUSED", (WIDTH - 100) / 2, (HEIGHT + 100) / 2);
+        }
+        if (snake.isFoodTouch(food) && board.getIndex()==2){
+
         }
         font.draw(batch, "Score: " + Scorer.getScore(), InfoGame.SCALE / 2, InfoGame.SCREEN_HEIGHT - 10);
         font.draw(batch, "Size: " + snake.getBody().size(), InfoGame.SCALE / 2, InfoGame.SCREEN_HEIGHT - 40);

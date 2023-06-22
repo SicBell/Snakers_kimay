@@ -30,7 +30,8 @@ public class Snake {
     private Cell tail;
     private boolean Pause;
     private boolean Mute;
-    private int LifeCount = 5;
+    private int LifeCount = lives.size();
+    private SpriteBatch batch;
 
 
     public Snake(TextureAtlas atlas) {
@@ -47,21 +48,22 @@ public class Snake {
             GameObject life = new GameObject(Asset.instance().getSprite("heart"));
             life.setSize(25, 25);
             life.setPosition((InfoGame.SCREEN_WIDTH - 25) - life.getWidth() * (i * 1.2f) , InfoGame.SCREEN_HEIGHT - life.getHeight() - 10);
+            System.out.print((InfoGame.SCREEN_WIDTH - 25) - life.getWidth() * (i * 1.2f) + " ");
+            System.out.println(InfoGame.SCREEN_HEIGHT - life.getHeight() - 10);
             lives.add(life);
 
         }
     }
-//    public void AddHealth() {
-//        for (int i = 0; i < 5; i++) {
-//            GameObject life = new GameObject(Asset.instance().getSprite("heart"));
-//            life.setSize(25, 25);
-//            life.setPosition((InfoGame.SCREEN_WIDTH - 25) - life.getWidth() * (i * 1.2f) , InfoGame.SCREEN_HEIGHT - life.getHeight() - 10);
-//            if (i == LifeCount - 1) {
-//                lives.add(life);
-//                life.draw();
-//            }
-//        }
-//    }
+    public void AddHealth() {
+        GameObject life = new GameObject(Asset.instance().getSprite("heart"));
+        int i = getLifeCount();
+        life.setSize(25, 25);
+        System.out.println("life count: " + i);
+        if (getLifeCount() < 5){
+            life.setPosition(615 - life.getWidth() * (i * 1.2f) , 445);
+            System.out.println(life.getX() + " " + life.getY());
+            lives.add(life);}
+    }
 
     private void init() {
         snakeBody.clear();
