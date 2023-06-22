@@ -26,6 +26,7 @@ public class Asset {
     public static final String EAT_FOOD_SOUND = "sounds/eat_food.mp3";
     public static final String CRASH_SOUND = "sounds/crash.ogg";
 
+
     private Asset() {
 
     }

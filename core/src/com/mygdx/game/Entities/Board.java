@@ -7,14 +7,19 @@ import com.mygdx.game.Game.InfoGame;
 
 import com.mygdx.game.asset.Asset;
 
+import java.util.Random;
+
 import static com.mygdx.game.Game.InfoGame.SCALE;
 
 public class Board {
-
+    public int index = 0;
     private Cell[][] cells;
     private Snake snake;
     private String[] foodTypes = {
-            "coin sprite"};
+            "coin sprite","diamond","potion"};
+
+
+    Random rand = new Random();
 
     public Board(Snake snake, int width, int height) {
         this.snake = snake;
@@ -51,19 +56,63 @@ public class Board {
         }
     }
 
+
+
+
+
     public GameObject generateFood() {
+        int num = rand.nextInt(100);
+        GameObject food;
+        if (num >= 94){
+            index = 2;
+            int foodType = index;
+            System.out.println("Food type: " + foodType);
+             food= new GameObject(Asset.instance().getSprite(foodTypes[foodType]));
+            food.setPosition(foodRandX(), foodRandY());
+            for (Cell body : snake.getBody()) {
+                while (food.getX() == body.getX() && body.getY() == food.getY()) {
+                    food.setPosition(foodRandX(), foodRandY());
+                }
+            }
+        } else if (num >= 70 && num <= 93) {
+            index = 1;
+            int foodType = index;
+            System.out.println("Food type: " + foodType);
+            food= new GameObject(Asset.instance().getSprite(foodTypes[foodType]));
+            food.setPosition(foodRandX(), foodRandY());
 
-        int foodType = MathUtils.random(foodTypes.length - 1);
-        System.out.println("Food type: " + foodType);
-        GameObject food = new GameObject(Asset.instance().getSprite(foodTypes[foodType]));
-        food.setPosition(foodRandX(), foodRandY());
+            for (Cell body : snake.getBody()) {
+                while (food.getX() == body.getX() && body.getY() == food.getY()) {
+                    food.setPosition(foodRandX(), foodRandY());
+                }
+            }
+            if (snake.getLifeCount() < 5){
+                snake.setLifeCount(snake.getLifeCount()+1);
+            }
 
-        for (Cell body : snake.getBody()) {
-            while (food.getX() == body.getX() && body.getY() == food.getY()) {
-                food.setPosition(foodRandX(), foodRandY());
+        }else {
+            index = 0;
+            int foodType = index;
+            System.out.println("Food type: " + foodType);
+            food= new GameObject(Asset.instance().getSprite(foodTypes[foodType]));
+            food.setPosition(foodRandX(), foodRandY());
+
+            for (Cell body : snake.getBody()) {
+                while (food.getX() == body.getX() && body.getY() == food.getY()) {
+                    food.setPosition(foodRandX(), foodRandY());
+                }
             }
         }
+
         return food;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 
     private float foodRandX() {
