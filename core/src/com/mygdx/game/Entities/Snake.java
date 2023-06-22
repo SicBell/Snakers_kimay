@@ -31,7 +31,6 @@ public class Snake {
     private boolean Pause;
     private boolean Mute;
     private int LifeCount;
-    private SpriteBatch batch;
 
 
     public Snake(TextureAtlas atlas) {
@@ -48,8 +47,6 @@ public class Snake {
             GameObject life = new GameObject(Asset.instance().getSprite("heart"));
             life.setSize(25, 25);
             life.setPosition((InfoGame.SCREEN_WIDTH - 25) - life.getWidth() * (i * 1.2f) , InfoGame.SCREEN_HEIGHT - life.getHeight() - 10);
-            System.out.print((InfoGame.SCREEN_WIDTH - 25) - life.getWidth() * (i * 1.2f) + " ");
-            System.out.println(InfoGame.SCREEN_HEIGHT - life.getHeight() - 10);
             lives.add(life);
 
         }
