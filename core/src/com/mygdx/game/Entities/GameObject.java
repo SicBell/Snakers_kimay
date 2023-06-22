@@ -77,13 +77,7 @@ public class GameObject {
         return x;
     }
 
-    @Override
-    public String toString() {
-                return "GameObject{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
-    }
+
 
     public void setRotation(int rotation) {
         sprite.setRotation(rotation);

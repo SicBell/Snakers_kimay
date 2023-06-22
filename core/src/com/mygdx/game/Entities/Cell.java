@@ -32,13 +32,7 @@ public class Cell extends GameObject {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Cell{" +
-                "x= " + x +
-                ", y= " + y +
-                '}';
-    }
+
 
     public Cell originCenter() {
         sprite.setOriginCenter();
