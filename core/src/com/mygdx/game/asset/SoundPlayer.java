@@ -22,7 +22,7 @@ public class SoundPlayer {
 
     public static Sound playSound(String name, boolean looping) {
         Sound sound = sounds.get(name);
-        sound.setLooping(sound.play(.5f), looping);
+        sound.setLooping(sound.play(1f), looping);
 
         return sound;
     }
@@ -30,6 +30,7 @@ public class SoundPlayer {
     public static Music playMusic(String name, boolean looping) {
         Music music = musics.get(name);
         music.setLooping(looping);
+        music.setVolume(0.4f);
         if (!music.isPlaying() && !music.isLooping()) music.play();
         return music;
     }
