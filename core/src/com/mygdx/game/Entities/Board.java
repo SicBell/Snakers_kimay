@@ -75,7 +75,7 @@ public class Board {
                 }
             }
         } else if (num >= 70 && num <= 93) {
-            index = 2;
+            index = 1;
             int foodType = index;
             System.out.println("Food type: " + foodType);
             food= new GameObject(Asset.instance().getSprite(foodTypes[foodType]));
