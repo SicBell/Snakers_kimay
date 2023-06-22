@@ -30,7 +30,7 @@ public class Snake {
     private Cell tail;
     private boolean Pause;
     private boolean Mute;
-    private int LifeCount = lives.size();
+    private int LifeCount;
     private SpriteBatch batch;
 
 
@@ -56,11 +56,10 @@ public class Snake {
     }
     public void AddHealth() {
         GameObject life = new GameObject(Asset.instance().getSprite("heart"));
-        int i = getLifeCount();
+        LifeCount = lives.size();
         life.setSize(25, 25);
-        System.out.println("life count: " + i);
-        if (getLifeCount() < 5){
-            life.setPosition(615 - life.getWidth() * (i * 1.2f) , 445);
+        if (LifeCount < 5){
+            life.setPosition(615 - life.getWidth() * (LifeCount * 1.2f) , 445);
             System.out.println(life.getX() + " " + life.getY());
             lives.add(life);}
     }

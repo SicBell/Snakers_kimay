@@ -67,7 +67,6 @@ public class SnakerGame {
                     snake.reset();
                     snake.popLife();
                     snake.setLifeCount(snake.getLifeCount()-1);
-                    System.out.println("life" + snake.getLifeCount());
                     if (!isMuted) {
                         SoundPlayer.playSound(Asset.CRASH_SOUND, false);
                     }
