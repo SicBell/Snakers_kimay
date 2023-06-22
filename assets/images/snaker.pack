@@ -1,77 +1,72 @@
 
-Snake1.png
+snaker.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-potion
-  rotate: false
-  xy: 2, 2
-  size: 544, 457
-  orig: 544, 457
-  offset: 0, 0
-  index: 0
 diamond
   rotate: false
-  xy: 2, 461
+  xy: 1, 515
+  size: 547, 456
+  orig: 547, 456
+  offset: 0, 0
+  index: 0
+coin sprite
+  rotate: false
+  xy: 1, 56
   size: 544, 457
   orig: 544, 457
   offset: 0, 0
   index: 1
 Snake Head
   rotate: false
-  xy: 548, 2
+  xy: 550, 586
   size: 385, 385
   orig: 385, 385
   offset: 0, 0
   index: 2
-Snake Tail
+floor1
   rotate: false
-  xy: 548, 461
+  xy: 550, 200
   size: 384, 384
   orig: 384, 384
   offset: 0, 0
+  index: 3
+potion
+  rotate: false
+  xy: 547, 1
+  size: 256, 197
+  orig: 256, 197
+  offset: 0, 0
   index: 4
 
-Snake2.png
+snaker2.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-coin sprite
+floor2
   rotate: false
-  xy: 2, 2
-  size: 544, 457
-  orig: 544, 457
+  xy: 1, 387
+  size: 384, 384
+  orig: 384, 384
   offset: 0, 0
   index: 5
 Snake Body
   rotate: false
-  xy: 548, 2
-  size: 384, 384
-  orig: 384, 384
-  offset: 0, 0
-  index:3
-floor2
-  rotate: false
-  xy: 2, 461
+  xy: 1, 1
   size: 384, 384
   orig: 384, 384
   offset: 0, 0
   index: 6
-floor1
+Snake Tail
   rotate: false
-  xy: 388, 461
+  xy: 387, 387
   size: 384, 384
   orig: 384, 384
   offset: 0, 0
   index: 7
-
-Snake3.png
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
 heart
   rotate: false
-  xy: 2, 2
+  xy: 387, 131
   size: 254, 254
   orig: 254, 254
   offset: 0, 0

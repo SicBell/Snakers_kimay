@@ -142,7 +142,7 @@ public class Snake {
 
 
     public void grow() {
-        snakeBody.getLast().sprite.setRegion(atlas.getRegions().get(3));
+        snakeBody.getLast().sprite.setRegion(atlas.getRegions().get(6));
         Cell body = new Cell(atlas.createSprite("Snake Tail"), tail.getX(), tail.getY());
         snakeBody.add(body);
         tail = snakeBody.getLast().originCenter();
